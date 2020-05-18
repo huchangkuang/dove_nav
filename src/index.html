@@ -21,29 +21,47 @@
         <div class="site">
             <ul>
                 <li>
-                    <a href="https://www.baidu.com">
-                        <div class="logo"><img src="../image/baidu_favicon.ico" alt="百度logo"></div>
-                        <div class="url">百度一下</div>
-                    </a>
+                    <div class="logo"><img src="../image/baidu_favicon.ico" alt="百度logo"></div>
+                    <div class="url">百度一下</div>
+                    <div class="close">···</div>
                 </li>
                 <li>
-                    <a href="https://www.bilibili.com">
-                        <div class="logo"><img src="../image/bilibili_favicon.ico" alt="哔哩哔哩logo"></div>
-                        <div class="url">哔哩哔哩</div>
-                    </a>
+                    <div class="logo"><img src="../image/bilibili_favicon.ico" alt="哔哩哔哩logo"></div>
+                    <div class="url">哔哩哔哩</div>
+                    <div class="close">
+                        ···
+                    </div>
                 </li>
                 <li class="add">
                     <div class="logo">
                         <svg class="icon">
-                            <use xlink:href="#iconadd"></use>
+                            <use xlink:href="#icon-add"></use>
                         </svg>
                     </div>
                     <div class="url">添加快捷导航</div>
                 </li>
             </ul>
         </div>
+        <div class="container">
+            <div class="frame">
+                <p>添加快捷方式</p>
+                <div class="bar">
+                    名称
+                    <input type="text" name="description" class="url-input first-input">
+                </div>
+                <div class="bar">
+                    网址
+                    <input type="url" name="url" class="url-input second-input">
+                </div>
+                <div class="button">
+                    <button class="modify first">删除</button>
+                    <button class="modify second">取消</button>
+                    <button class="modify last">完成</button>
+                </div>
+            </div>
+        </div>
     </main>
-    <script src="//at.alicdn.com/t/font_1821994_czgqlxr9nui.js"></script>
+    <script src="//at.alicdn.com/t/font_1821994_nrfo6zhon2i.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
