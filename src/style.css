@@ -22,6 +22,8 @@ a {
 .globalHeader{
     /* border: 1px solid red; */
     margin: 20px;
+}
+form{
     display: flex;
     justify-content: space-between;
 }
@@ -52,21 +54,28 @@ a {
     margin: 20px;
 }
 .site li{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     border-radius: 4px;
     width: 150px;
     height: 150px;
+    padding: 10px;
+    margin-bottom: 20px;
     display: flex;
     direction: column;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 20px;
+}
+a{
+    display: flex;
+    direction: column;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .logo {
     /* border: 1px solid blue; */
-    background: rgb(241, 243, 244);
+    background: rgb(229, 231, 232);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -79,4 +88,33 @@ a {
 img {
     max-width: 100%;
     max-height: 100%;
+}
+@media(min-width:500px){
+    body{
+        /* border: 1px solid red; */
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    form{
+        display: flex;
+        justify-content: center;
+    }
+    .site li:hover{
+        background: rgb(242, 242, 242);
+    }
+    .site > ul {
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: start;
+
+    }
+    .input-url{
+        max-width: 400px;
+    }
+    .site li {
+        /* border: 1px solid red; */
+        /* flex: 1; */
+        width: 20%;
+    }
 }

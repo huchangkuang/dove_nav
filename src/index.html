@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-    <title>导航</title>
+    <title>信鸽导航</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body>
     <header class="globalHeader">
-        <input type="text" class="input-url">
-        <button type="submit" class="serch">搜索</button>
+        <form action="https://www.baidu.com/s?" method="get">
+            <input type="text" class="input-url" name="word">
+            <button type="submit" class="serch">搜索</button>
+        </form>
     </header>
     <main class="glabalMain">
         <div class="site">
             <ul>
                 <li>
-                    <div class="logo"><img src="../image/baidu_favicon.ico" alt="百度logo"></div>
-                    <div class="url">百度一下</div>
+                    <a href="https://www.baidu.com">
+                        <div class="logo"><img src="../image/baidu_favicon.ico" alt="百度logo"></div>
+                        <div class="url">百度一下</div>
+                    </a>
                 </li>
                 <li>
-                    <div class="logo"><img src="../image/bilibili_favicon.ico" alt="哔哩哔哩logo"></div>
-                    <div class="url">哔哩哔哩</div>
+                    <a href="https://www.bilibili.com">
+                        <div class="logo"><img src="../image/bilibili_favicon.ico" alt="哔哩哔哩logo"></div>
+                        <div class="url">哔哩哔哩</div>
+                    </a>
                 </li>
-                <li id="add">
+                <li class="add">
                     <div class="logo">
                         <svg class="icon">
                             <use xlink:href="#iconadd"></use>
@@ -37,6 +44,7 @@
         </div>
     </main>
     <script src="//at.alicdn.com/t/font_1821994_czgqlxr9nui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
 
