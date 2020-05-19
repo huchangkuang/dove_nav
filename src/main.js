@@ -1,11 +1,13 @@
 const $lastLi = $(".site").find(".add")
 const x = localStorage.getItem("x")
 const xObject = JSON.parse(x)
-let fInput = $(".first-input")
-let sInput = $(".second-input")
-let finish = $(".button :last-child")
-// console.log(x)
-// console.log(xObject)
+let fInput1 = $(".container .first-input")
+let sInput1 = $(".container .second-input")
+let finish1 = $(".container .modify.last")
+let fInput2 = $(".container-change .first-input")
+let sInput2 = $(".container-change .second-input")
+let finish2 = $(".container-change .modify.last")
+let i = 0
 const hashMap = xObject || [{
     logo: "../image/baidu_favicon.ico",
     description: "百度一下",
@@ -17,67 +19,100 @@ const hashMap = xObject || [{
 }]
 const render = () => {
     $(".site").find("li:not(.add)").remove()
-    hashMap.forEach(node => {
-        const $li = $(`<li>
+    hashMap.forEach((node, index) => {
+        const $li = $(`<li title="${node.description}">
             <div class="logo">
                 <img src="${node.logo}" alt="${node.description}logo">
             </div>
             <div class="url">${node.description}</div>
-            <div class="close">
-               ···
+            <div class="write">
+                <svg class="icon-xiugai">
+                    <use xlink:href="#icon-xiugai"></use>
+                </svg>
             </div>
     </li>`).insertBefore($lastLi)
         $li.on("click", () => {
             window.open(node.url, "_self")
         })
-        $li.on("click", ".close", () => {
+        //修改快捷导航
+        $li.on("click", ".write", (e) => {
             e.stopPropagation() //阻止冒泡
+            $(".container-change").addClass("show")
+            //修改全局变量         
+            $.ajax({
+                async: false,
+                success: function () {
+                    i = index
+                }
+            })
         })
     })
 }
 render()
-$(".add").on("click", () => {
-    $(".container").addClass("show")
-})
-//实时监听输入框事件
-$(".url-input").on("input properchange", () => {
-    let isClick = false
-    if ((fInput.val() && sInput.val()) !== "") {
-        finish.addClass("blue")
-        isClick = true
-    } else {
-        finish.removeClass("blue")
-        isClick = false
-    }
-    //动态事件
-    if (isClick === true) {
-        finish.on("click", () => {
-            let url = sInput.val()
-            if (url.indexOf("http") !== 0) {
-                url = "https://" + url
-            }
-            console.log(url)
-            let description = fInput.val()
-            console.log(description)
-            let imgSrc = url + "/favicon.ico"
-            hashMap.push({
-                logo: imgSrc,
-                description: description,
-                url: url
-            })
-            render()
-            $(".container.show").removeClass("show")
-        })
-    } else {
-        finish.unbind("click")
-    }
-})
-if (fInput.val() && sInput.val() !== "") {
-    finish.addClass("blue")
+function del() {
+    hashMap.forEach((node, index) => {
+        hashMap.splice(index + 1, 1)
+        render()
+        $(".container-change").removeClass("show")
+    })
 }
-$(".button :nth-child(2)").on("click", () => {
-    $(".container.show").removeClass("show")
-})
+function clear(fInput,sInput,finish){
+    fInput.val("")
+    sInput.val("")
+    finish.removeClass("blue")
+}
+function cancel(fInput, sInput, finish) {
+    $(".show").removeClass("show")
+    clear(fInput,sInput,finish)
+}
+function add_show() {
+    $(".container").addClass("show")
+}
+function done(fInput, sInput, finish,add) {
+    if (add === "add") {
+        let url = sInput.val()
+        if (url.indexOf("http") !== 0) {
+            url = "https://" + url
+        }
+        let description = fInput.val()
+        let imgSrc = url + "/favicon.ico"
+        hashMap.push({
+            logo: imgSrc,
+            description: description,
+            url: url
+        })
+        console.log("fuck")
+        render()
+        clear(fInput,sInput,finish)
+        $(".container.show").removeClass("show")
+    } else if (add === "modify") {
+        let url = sInput.val()
+        if (url.indexOf("http") !== 0) {
+            url = "https://" + url
+        }
+        let description = fInput.val()
+        let imgSrc = url + "/favicon.ico"
+        hashMap[i] = {
+            logo: imgSrc,
+            description: description,
+            url: url
+        }
+        console.log("hi")
+        render()
+        clear(fInput,sInput,finish)
+        $(".container-change").removeClass("show")
+    }
+}
+function add_blue(fInput, sInput, finish) {
+    if (sInput.val() !== "") {
+        finish.addClass("blue")
+        // finish.attr("onclick", done(fInput, sInput))
+    } else if (finish.hasClass("blue")) {
+        finish.removeClass("blue")
+        // finish.attr("onclick", "")
+    }
+}
+//页面关闭前保存哈希值
 window.onbeforeunload = () => {
     const string = JSON.stringify(hashMap)
     localStorage.setItem("x", string)

@@ -6,16 +6,22 @@
 ul,ol{
     list-style: none;
 }
-a {
-    color: inherit;
-    text-decoration: none;
-}
 .icon {
     /* border: 1px solid red; */
     width: 40%; 
     height: 40%;
     vertical-align: -0
     .15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+ .icon-xiugai {
+    width: 1.5em; 
+    height: 1.5em;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
  }
@@ -66,19 +72,13 @@ form{
     flex-direction: column;
     align-items: center;
     position: relative;
+    background: rgb(242, 242, 242);
 }
 .close{
     /* border: 1px solid red; */
     top: 0px;
     right: 0px;
     position: absolute;
-}
-a{
-    display: flex;
-    direction: column;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 }
 .logo {
     /* border: 1px solid blue; */
@@ -98,11 +98,10 @@ img {
 }
 .container{
     /* border: 1px solid red; */
-    /* 写100vw会有左右滚动条 */
-    width: 99vw;
+    width: 100vw;
     height: 100vh;
+    position: fixed;
     background: rgba(255,255,255,0.5);
-    position: absolute;
     top: 0px;
     left: 0px;
     display: none;
@@ -111,6 +110,24 @@ img {
 }
 .container.show{
     display: flex;
+}
+.container-change{
+    /* border: 1px solid red; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(255,255,255,0.5);
+    top: 0px;
+    left: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.container-change.show{
+    display: flex;
+}
+.container-change .first{
+    color: #1a73e8;
 }
 .frame{
     /* border: 1px solid red; */
@@ -137,13 +154,13 @@ img {
     padding: 5px 10px;
     background: inherit;
 }
-.second:hover{
-    cursor: pointer;
-}
-.button :nth-child(2){
+.second{
     /* border: 1px solid red; */
     align-self: flex-end;
     color: #1a73e8;
+}
+.second:hover{
+    cursor: pointer;
 }
 .modify.last.blue{
     background: #297be7;
@@ -172,8 +189,18 @@ img {
         display: flex;
         justify-content: center;
     }
+    .site li{
+        background: unset;
+    }
     .site li:hover{
         background: rgb(242, 242, 242);
+        cursor: pointer;
+    }
+    .icon-xiugai {
+        display: none;
+    }
+    .site li:hover .icon-xiugai{
+        display: inherit;
     }
     .site > ul {
         /* border: 1px solid red; */

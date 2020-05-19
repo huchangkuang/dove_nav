@@ -23,16 +23,22 @@
                 <li>
                     <div class="logo"><img src="../image/baidu_favicon.ico" alt="百度logo"></div>
                     <div class="url">百度一下</div>
-                    <div class="close">···</div>
+                    <div class="write">
+                        <svg class="icon-xiugai">
+                            <use xlink:href="#icon-xiugai"></use>
+                        </svg>
+                    </div>
                 </li>
                 <li>
                     <div class="logo"><img src="../image/bilibili_favicon.ico" alt="哔哩哔哩logo"></div>
                     <div class="url">哔哩哔哩</div>
-                    <div class="close">
-                        ···
+                    <div class="write">
+                        <svg class="icon-xiugai">
+                            <use xlink:href="#icon-xiugai"></use>
+                        </svg>
                     </div>
                 </li>
-                <li class="add">
+                <li class="add" onclick="add_show()">
                     <div class="logo">
                         <svg class="icon">
                             <use xlink:href="#icon-add"></use>
@@ -51,12 +57,32 @@
                 </div>
                 <div class="bar">
                     网址
-                    <input type="url" name="url" class="url-input second-input">
+                    <input type="url" name="url" class="url-input second-input"
+                        oninput="add_blue(fInput1,sInput1,finish1)">
                 </div>
                 <div class="button">
                     <button class="modify first">删除</button>
-                    <button class="modify second">取消</button>
-                    <button class="modify last">完成</button>
+                    <button class="modify second" onclick="cancel(fInput1,sInput1,finish1)">取消</button>
+                    <button class="modify last" onclick="done(fInput1,sInput1,fInput1,'add')">完成</button>
+                </div>
+            </div>
+        </div>
+        <div class="container-change">
+            <div class="frame">
+                <p>修改快捷方式</p>
+                <div class="bar">
+                    名称
+                    <input type="text" name="description" class="url-input first-input">
+                </div>
+                <div class="bar">
+                    网址
+                    <input type="url" name="url" class="url-input second-input"
+                        oninput="add_blue(fInput2,sInput2,finish2)">
+                </div>
+                <div class="button">
+                    <button class="modify first" onclick="del()">删除</button>
+                    <button class="modify second" onclick="cancel(fInput2,sInput2,finish2)">取消</button>
+                    <button class="modify last" onclick="done(fInput2,sInput2,finish2,'modify')">完成</button>
                 </div>
             </div>
         </div>
