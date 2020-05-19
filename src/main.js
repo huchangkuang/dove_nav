@@ -25,7 +25,7 @@ const render = () => {
                 <img src="${node.logo}" alt="${node.description}logo">
             </div>
             <div class="url">${node.description}</div>
-            <div class="write">
+            <div class="write" title="修改">
                 <svg class="icon-xiugai">
                     <use xlink:href="#icon-xiugai"></use>
                 </svg>
@@ -50,25 +50,23 @@ const render = () => {
 }
 render()
 function del() {
-    hashMap.forEach((node, index) => {
-        hashMap.splice(index + 1, 1)
-        render()
-        $(".container-change").removeClass("show")
-    })
+    hashMap.splice(i, 1)
+    render()
+    $(".container-change").removeClass("show")
 }
-function clear(fInput,sInput,finish){
+function clear(fInput, sInput, finish) {
     fInput.val("")
     sInput.val("")
     finish.removeClass("blue")
 }
 function cancel(fInput, sInput, finish) {
     $(".show").removeClass("show")
-    clear(fInput,sInput,finish)
+    clear(fInput, sInput, finish)
 }
 function add_show() {
     $(".container").addClass("show")
 }
-function done(fInput, sInput, finish,add) {
+function done(fInput, sInput, finish, add) {
     if (add === "add") {
         let url = sInput.val()
         if (url.indexOf("http") !== 0) {
@@ -81,9 +79,8 @@ function done(fInput, sInput, finish,add) {
             description: description,
             url: url
         })
-        console.log("fuck")
         render()
-        clear(fInput,sInput,finish)
+        clear(fInput, sInput, finish)
         $(".container.show").removeClass("show")
     } else if (add === "modify") {
         let url = sInput.val()
@@ -97,9 +94,8 @@ function done(fInput, sInput, finish,add) {
             description: description,
             url: url
         }
-        console.log("hi")
         render()
-        clear(fInput,sInput,finish)
+        clear(fInput, sInput, finish)
         $(".container-change").removeClass("show")
     }
 }

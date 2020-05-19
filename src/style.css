@@ -73,6 +73,7 @@ form{
     align-items: center;
     position: relative;
     background: rgb(242, 242, 242);
+    /* white-space: nowrap; */
 }
 .close{
     /* border: 1px solid red; */
