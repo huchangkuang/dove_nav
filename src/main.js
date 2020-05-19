@@ -7,7 +7,7 @@ let finish1 = $(".container .modify.last")
 let fInput2 = $(".container-change .first-input")
 let sInput2 = $(".container-change .second-input")
 let finish2 = $(".container-change .modify.last")
-let i = 0
+let i
 const hashMap = xObject || [{
     logo: "../image/baidu_favicon.ico",
     description: "百度一下",
