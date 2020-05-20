@@ -67,6 +67,9 @@ function add_show() {
     $(".container").addClass("show")
 }
 function done(fInput, sInput, finish, add) {
+    if (!finish.hasClass("blue")) {
+        return
+    }
     if (add === "add") {
         let url = sInput.val()
         if (url.indexOf("http") !== 0) {
@@ -99,13 +102,11 @@ function done(fInput, sInput, finish, add) {
         $(".container-change").removeClass("show")
     }
 }
-function add_blue(fInput, sInput, finish) {
+function add_blue(sInput, finish) {
     if (sInput.val() !== "") {
         finish.addClass("blue")
-        // finish.attr("onclick", done(fInput, sInput))
     } else if (finish.hasClass("blue")) {
         finish.removeClass("blue")
-        // finish.attr("onclick", "")
     }
 }
 //页面关闭前保存哈希值

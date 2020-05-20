@@ -57,13 +57,12 @@
                 </div>
                 <div class="bar">
                     网址
-                    <input type="url" name="url" class="url-input second-input"
-                        oninput="add_blue(fInput1,sInput1,finish1)">
+                    <input type="url" name="url" class="url-input second-input" oninput="add_blue(sInput1,finish1)">
                 </div>
                 <div class="button">
                     <button class="modify first">删除</button>
                     <button class="modify second" onclick="cancel(fInput1,sInput1,finish1)">取消</button>
-                    <button class="modify last" onclick="done(fInput1,sInput1,fInput1,'add')">完成</button>
+                    <button class="modify last" onclick="done(fInput1,sInput1,finish1,'add')">完成</button>
                 </div>
             </div>
         </div>
@@ -76,8 +75,7 @@
                 </div>
                 <div class="bar">
                     网址
-                    <input type="url" name="url" class="url-input second-input"
-                        oninput="add_blue(fInput2,sInput2,finish2)">
+                    <input type="url" name="url" class="url-input second-input" oninput="add_blue(sInput2,finish2)">
                 </div>
                 <div class="button">
                     <button class="modify first" onclick="del()">删除</button>

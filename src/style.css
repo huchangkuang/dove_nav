@@ -39,18 +39,22 @@ form{
     margin-right: 20px;
     padding: 0px 10px;
     border: 1px solid #9C9C9C;
-    border-radius: 4px;
+    border-radius: 24px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .serch{
     white-space: nowrap;
-    padding: 0px 20px;
-    background: #326EC8;
+    padding: 0px 25px;
+    background: rgb(31,162,255);
+    background: linear-gradient(90deg, #0162c8 0%, #55e7fc 100%);
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
+    border-radius: 24px;
     color: white;
     font-size: 18px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.serch:hover{
+    cursor: pointer;
 }
 .site > ul {
     /* border: 1px solid green; */
