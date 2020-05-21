@@ -13,7 +13,8 @@
 <body>
     <header class="globalHeader">
         <form action="https://www.baidu.com/s?" method="get">
-            <input type="text" class="input-url" name="word">
+            <input type="text" class="input-url" name="word" placeholder="请输入搜索内容" onfocus="this.placeholder = ''"
+                onblur="this.placeholder='请输入搜索内容'">
             <button type="submit" class="serch">搜索</button>
         </form>
     </header>

@@ -7,7 +7,7 @@ let finish1 = $(".container .modify.last")
 let fInput2 = $(".container-change .first-input")
 let sInput2 = $(".container-change .second-input")
 let finish2 = $(".container-change .modify.last")
-let i
+var i = 0
 const hashMap = xObject || [{
     logo: "../image/baidu_favicon.ico",
     description: "百度一下",
@@ -38,16 +38,12 @@ const render = () => {
         $li.on("click", ".write", (e) => {
             e.stopPropagation() //阻止冒泡
             $(".container-change").addClass("show")
-            //修改全局变量         
-            $.ajax({
-                async: false,
-                success: function () {
-                    i = index
-                }
-            })
+            //修改全局变量
+            window.i = index
         })
     })
 }
+console.log(`全局${i}`)
 render()
 function del() {
     hashMap.splice(i, 1)
@@ -97,6 +93,7 @@ function done(fInput, sInput, finish, add) {
             description: description,
             url: url
         }
+        console.log(i)
         render()
         clear(fInput, sInput, finish)
         $(".container-change").removeClass("show")
