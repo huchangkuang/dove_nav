@@ -16,6 +16,34 @@ const hashMap = xObject || [{
     logo: "../image/bilibili_favicon.ico",
     description: "哔哩哔哩",
     url: "https://www.bilibili.com"
+}, {
+    logo: "../image/zhihu.ico",
+    description: "知乎",
+    url: "https://www.zhihu.com"
+}, {
+    logo: "../image/githubico.ico",
+    description: "github",
+    url: "https://github.com"
+}, {
+    logo: "../image/gitte.ico",
+    description: "码云",
+    url: "https://gitee.com"
+}, {
+    logo: "../image/yuqueico.ico",
+    description: "语雀",
+    url: "https://www.yuque.com"
+}, {
+    logo: "../image/CSSTrick.ico",
+    description: "CSS Trick",
+    url: "https://css-tricks.com"
+}, {
+    logo: "../image/elementUI.ico",
+    description: "element UI",
+    url: "https://element.eleme.cn/#/zh-CN"
+}, {
+    logo: "../image/mi.ico",
+    description: "觅元素",
+    url: "http://www.51yuansu.com/"
 }]
 const render = () => {
     $(".site").find("li:not(.add)").remove()
